@@ -1,2 +1,2 @@
 // index.js
-console.log("movieList")
+console.log("movieList index start")
