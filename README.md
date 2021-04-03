@@ -17,6 +17,9 @@ Install the latest stable version: n stable
 Install the latest release: n latest
 Install a specific version: n [version.number]
 
+node -v
+v15.13.0
+
 
 https://subscription.packtpub.com/book/web_development/9781789954937/1/ch01lvl1sec04/creating-a-movie-list-application
 
