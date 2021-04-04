@@ -1,7 +1,6 @@
 {
   "name": "movieList",
   "version": "0.4.4",
-  "license": "MIT",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
