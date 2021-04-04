@@ -13,7 +13,7 @@ class List extends Component {
     async componentDidMount() {
         const movies = await fetch('../../assets/data.json');
         const moviesJSON = await movies.json();
-
+        console.log("data loaded");
         if (moviesJSON) {
             this.setState({
                 data: moviesJSON,
@@ -30,8 +30,8 @@ class List extends Component {
         return (
             <div className='row'>
                 {data.map(movie =>
-                    <div className='col-sm-2'>
-                        <Card key={movie.id} movie={movie}/>
+                    <div key={movie.id} className='col-sm-2'>
+                        <Card  movie={movie}/>
                     </div>
                 )}
             </div>
