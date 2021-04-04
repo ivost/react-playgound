@@ -1,5 +1,7 @@
 # react-playgound
 
+https://create-react-app.dev
+
 to upgrade node
 
 # make cache folder (if missing) and take ownership
