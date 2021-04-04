@@ -44,5 +44,7 @@ create webpack.config.js
 
 create .babelrc
 
+npm install --save-dev webpack-dev-server
+
 
 
