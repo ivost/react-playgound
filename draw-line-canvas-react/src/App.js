@@ -14,8 +14,8 @@ function App() {
         const ctx = el.getContext("2d");
 
         // draw a line
-        const drawLine = (ctx, info, style = {}) => {
-            const {x, y, x1, y1} = info;
+        const drawLine = (ctx, points, style = {}) => {
+            const {x, y, x1, y1} = points;
             const {color = 'blue', width = 1} = style;
 
             ctx.beginPath();
@@ -27,22 +27,24 @@ function App() {
         }
 
         // draw a rectangle
-        const drawRect = (ctx, rect) => {
+        const drawRect = (ctx, rect, style = {}) => {
             const {x, y, w, h} = rect;
             const x1 = x + w
             const y1 = y + h
-            drawLine(ctx, {x: x, y: y, x1: x1, y1: y});
-            drawLine(ctx, {x: x1, y: y, x1: x1, y1: y1});
-            drawLine(ctx, {x: x1, y: y1, x1: x, y1: y1});
-            drawLine(ctx, {x: x, y: y1, x1: x, y1: y});
+            drawLine(ctx, {x: x, y: y, x1: x1, y1: y}, style);
+            drawLine(ctx, {x: x1, y: y, x1: x1, y1: y1}, style);
+            drawLine(ctx, {x: x1, y: y1, x1: x, y1: y1}, style);
+            drawLine(ctx, {x: x, y: y1, x1: x, y1: y}, style);
         }
 
         const rect = {x: 30, y: 40, w: 100, h: 200}
         drawRect(ctx, rect)
-        //drawLine(ctx, { x: 20, y: 20, x1: 20, y1: 100 });
-        //drawLine(ctx, { x: 50, y: 50, x1: 200, y1: 100 }, { color: 'red' });
-        // drawLine(ctx, { x: 300, y: 250, x1: 260, y1: 70 }, { color: 'green', width: 5 });
-        // drawLine(ctx, { x: 70, y: 240, x1: 160, y1: 120 }, { color: 'blue' });
+
+        drawLine(ctx, {x: 30, y: 40, x1: 130, y1: 240}, {color: 'red', width: 2});
+
+        const rect2 = {x: 40, y: 30, w: 200, h: 100}
+        drawRect(ctx, rect2, {color: 'green', width: 3})
+
 
     }, []);
 
