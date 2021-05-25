@@ -1,0 +1,25 @@
+{
+  "name": "react-drawable-overlay-example",
+  "homepage": "https://jimmyhoglund.github.io/react-drawable-overlay",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
+    "react": "16.8.5",
+    "react-color": "^2.17.0",
+    "react-dom": "16.8.5",
+    "react-drawable-overlay": "link:..",
+    "react-scripts": "^1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
