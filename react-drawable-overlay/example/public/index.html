@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
 
     <title>react-drawable-overlay</title>
@@ -14,7 +14,28 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <div>
+      <video
+        id="my-video"
+        class="video-js"
+        controls
+        preload="auto"
+        width="640"
+        height="264"
+        poster="MY_VIDEO_POSTER.jpg"
+        data-setup="{}"
+      >
+        <source src="https://edgestorage01.blob.core.windows.net/video/C610/001_030-1920x1056-004-1622342257.mp4" type="video/mp4" />
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a
+          web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+
+    </div>
 
     <div id="root"></div>
+
+    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
   </body>
 </html>
