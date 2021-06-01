@@ -1,70 +1,76 @@
 import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 
-const UserDetails = ({ user }) => {
-    const [userDetails, setUserDetails] = useState(null);
+const ImgRoot = "https://edgestorage01.blob.core.windows.net/images/"
+
+const ClipEvents = ({ clip }) => {
+    const [clipEvents, setClipEvents] = useState(null);
 
     useEffect(() => {
         (async () => {
-            const resp = await fetch(`https://jsonplaceholder.typicode.com/users/${user.id}`);
+            const resp = await fetch(
+                // eslint-disable-next-line react/prop-types
+                `http://localhost:8080/clipevents?id=${clip.id}`
+            );
             const json = await resp.json();
-            setUserDetails(json);
+            //console.log(json);
+            setClipEvents(json);
         })();
-    }, [user]);
+    }, [clip]);
 
-    if (!userDetails) {
+    if (!clipEvents) {
         return <div>Loading...</div>;
     }
 
     return (
         <div>
-            {userDetails && (
-                <>
-                    <ul>
-                        <li>Name: {userDetails.name}</li>
-                        <li>Company: {userDetails.company.name}</li>
-                    </ul>
-                </>
-            )}
+            {clipEvents.map(v => (
+                <div key={v.id}>
+                  <img src={ImgRoot + v.image} alt=''/>
+                </div>
+            ))}
         </div>
     );
 };
 
-const UserList = () => {
-    const [users, setUsers] = useState([]);
-    const [selectedUser, setSelectedUser] = useState(null);
+const Clips = () => {
+    const [clips, setClips] = useState([]);
+    const [selectedClip, setSelectedClip] = useState(null);
 
     useEffect(() => {
         (async () => {
-            const resp = await fetch('https://jsonplaceholder.typicode.com/users');
+            const resp = await fetch('http://localhost:8080/clips');
             const json = await resp.json();
-            setUsers(json);
+            //console.log(json);
+            setClips(json);
         })();
     }, []);
 
     return (
         <div>
             <div>
-                <h2>User List</h2>
+                <h2>Videos</h2>
                 <ul>
-                    {users.map(u => (
-                        <li key={u.id} onClick={() => setSelectedUser(u)}>{u.name}</li>
+                    {clips.map(v => (
+                        <li key={v.id} onClick={() => setSelectedClip(v)}>{v.path}</li>
                     ))}
                 </ul>
             </div>
             <div>
-                <h2>User Details</h2>
-                { selectedUser ? <UserDetails key={selectedUser.id} user={selectedUser}/> : ""}
+                <h2>Video Events</h2>
+                { selectedClip ? <ClipEvents key={selectedClip.id} clip={selectedClip}/> : ""}
             </div>
         </div>
     )
 };
 
+
+
 const App = () => {
     return (
         <div>
-            <h1>Master-detail v.1.6.1.0</h1>
-            <UserList/>
+            <h1>Video Events v.1.6.1.2</h1>
+            <Clips/>
         </div>
     )
 };
